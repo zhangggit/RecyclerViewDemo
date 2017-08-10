@@ -60,8 +60,8 @@ public class MyAdaper extends XRecyclerView.Adapter<XRecyclerView.ViewHolder> {
             mholder.image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (listener!=null){
-                        listener.OnItem(view,position);
+                    if (listener != null) {
+                        listener.OnItem(view, position);
                     }
                 }
             });
@@ -84,14 +84,16 @@ public class MyAdaper extends XRecyclerView.Adapter<XRecyclerView.ViewHolder> {
         TextView name;
         @BindView(R.id.description)
         TextView description;
+
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
     }
+
     //回调接口
-    public interface OnItemClickListener{
-        void OnItem(View view,int position);
+    public interface OnItemClickListener {
+        void OnItem(View view, int position);
     }
 
 }

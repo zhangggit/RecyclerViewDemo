@@ -20,19 +20,20 @@ public class MyLine extends XRecyclerView.ItemDecoration {
     Drawable drawable;
 
     //传上下文，获得shape文件的路径
-    public MyLine(int res , Context context) {
-        drawable=context.getResources().getDrawable(res);
+    public MyLine(int res, Context context) {
+        drawable = context.getResources().getDrawable(res);
     }
 
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-        outRect.set(8,8,8,8);
+        outRect.set(8, 8, 8, 8);
     }
 
     @Override
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDraw(c, parent, state);
     }
+
     //绘制分割线
     @Override
     public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
@@ -45,7 +46,7 @@ public class MyLine extends XRecyclerView.ItemDecoration {
             XRecyclerView.LayoutParams params = (XRecyclerView.LayoutParams) child.getLayoutParams();
             int top = child.getBottom() + params.bottomMargin;
             int bottom = top + drawable.getIntrinsicHeight();
-            drawable.setBounds(left,top,right,bottom);
+            drawable.setBounds(left, top, right, bottom);
             drawable.draw(c);
         }
     }

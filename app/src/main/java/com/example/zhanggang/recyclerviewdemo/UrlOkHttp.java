@@ -11,7 +11,7 @@ import okhttp3.Request;
  */
 
 public class UrlOkHttp {
-    public static void sendOkHttpRequest(String address, Callback callback){
+    public static void sendOkHttpRequest(String address, Callback callback) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(address)

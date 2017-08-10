@@ -27,7 +27,7 @@ import okhttp3.Response;
  * 时  间：2017/8/10 - 19:25.
  * 创建人：张刚
  */
-public class MainActivity extends AppCompatActivity implements XRecyclerView.LoadingListener,MyAdaper.OnItemClickListener{
+public class MainActivity extends AppCompatActivity implements XRecyclerView.LoadingListener, MyAdaper.OnItemClickListener {
 
     @BindView(R.id.xrecyclerview)
     XRecyclerView xRecyclerView;
@@ -43,22 +43,22 @@ public class MainActivity extends AppCompatActivity implements XRecyclerView.Loa
         ButterKnife.bind(this);
 
         initData();
-        //实现监听
+        //实现上啦加载下拉刷新监听
         xRecyclerView.setLoadingListener(this);
-
 
 
         LinearLayoutManager manager = new LinearLayoutManager(this);
         xRecyclerView.setLayoutManager(manager);
 
         //设置分割线 边框
-        xRecyclerView.addItemDecoration(new MyLine(R.drawable.line,this));
+        xRecyclerView.addItemDecoration(new MyLine(R.drawable.line, this));
 
         //设置适配器
         adaper = new MyAdaper(list, this);
         xRecyclerView.setAdapter(adaper);
-        adaper.setListener(this);
 
+        //实现点击子条目图片监听
+        adaper.setListener(this);
     }
 
     private void initData() {
@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements XRecyclerView.Loa
         adaper.notifyDataSetChanged();
         xRecyclerView.refreshComplete();
     }
+
     //上啦加载
     @Override
     public void onLoadMore() {
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements XRecyclerView.Loa
     }
 
     @Override
-    public void OnItem(View view,int position) {
-        Toast.makeText(this, "点击图片："+position, Toast.LENGTH_SHORT).show();
+    public void OnItem(View view, int position) {
+        Toast.makeText(this, "点击图片：" + position, Toast.LENGTH_SHORT).show();
     }
 }
